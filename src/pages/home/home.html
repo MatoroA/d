@@ -1,0 +1,29 @@
+<ion-content>
+  <div id="sign-in">
+    <button color = "light"  ion-button outline icon-only (click) = "goto('close');">
+      <ion-icon name="log-out"></ion-icon>
+    </button>
+  </div>
+  <div class="wrapper">
+    
+    <span id = "h2" ion-text>Hello</span>
+    <!-- <p *ngFor="let item of campusData" > {{item}} </p> -->
+
+
+    <ion-row>
+      <ion-col>
+        <button ion-button round (click) = "goto('CheckinPage');">Check in</button>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  {{campusData?.name}}
+
+
+  <p *ngFor="let campus of CampusData" > {{campus?.name}} </p>
+
+
+  <div id="landing-bg">
+
+  </div>
+</ion-content>

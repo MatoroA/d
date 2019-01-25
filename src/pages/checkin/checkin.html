@@ -1,0 +1,145 @@
+<ion-header>
+
+  <ion-navbar color = "primary">
+    <ion-title>check in</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div id="pager">
+    <div class="page">
+      1
+      <div *ngIf = "pager == 1" class="ring"></div>
+    </div>
+    <div class="page">
+      2
+      <div *ngIf = "pager == 2" class="ring"></div>
+    </div>
+    <div class="page">
+      3
+      <div *ngIf = "pager == 3" class="ring"></div>
+    </div>
+
+  </div>
+ 
+  <ion-slides class = "sl">
+
+    <!--reason for visit and organisattion-->
+    <ion-slide class = "swiper-no-swiping">
+      <div class="global-heading" ion-text>
+        reason for visit and where
+      </div>
+      <ion-item>
+        <ion-label>Select reason</ion-label>
+        <ion-select [(ngModel)]="reason">
+          <ion-option value="delivery" > delivery </ion-option>
+          <ion-option value="meeting" > meeting </ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+          <ion-label>Select organisation</ion-label>
+          <ion-select [(ngModel)]="organisation" (ionChange)="onSelectChange($event)" >
+            <ion-option *ngFor="let company of CompanyData | async" value="{{company.id}}" > {{company?.name}} </ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-row>
+          <ion-col>
+              <button class = "next" round ion-button (click) = "goToSlide(1)">next</button>
+          </ion-col>
+        </ion-row>
+    </ion-slide>
+
+    <!--reason for visit-->
+    <ion-slide class = "swiper-no-swiping">
+      <div class="global-heading" ion-text>
+        please provide your details
+      </div>
+      <div id="checkin-wrapper">
+        <ion-item>
+          <ion-label floating>Provide your name</ion-label>
+          <ion-input></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Provide your surname</ion-label>
+          <ion-input></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Provide your ID number</ion-label>
+          <ion-input></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Provide your Vehicle Registration (Optional)</ion-label>
+          <ion-input></ion-input>
+        </ion-item>
+      </div>
+      <ion-row>
+        <ion-col>
+            <button class = "next" round ion-button (click) = "goToSlide(0)">back</button>
+        </ion-col>
+        <ion-col>
+            <button class = "next" round ion-button (click) = "goToSlide(2)">next</button>
+        </ion-col>
+      </ion-row>
+    </ion-slide>
+
+    <!--reason for search and checkin-->
+    <ion-slide class = "swiper-no-swiping">
+      <div class="global-heading" ion-text>
+        reason for visit and where
+      </div>
+      <div id="search-feed">
+        <p ion-text> {{searchFeedback}}</p>
+      </div>
+      <ion-searchbar
+        [(ngModel)]="myInput"
+        [showCancelButton]="shouldShowCancel"
+        (ionInput)="onInput($event)"
+        (ionCancel)="onCancel($event)">
+      </ion-searchbar>
+
+
+  <div *ngIf='myInput !=""'>
+      <div class="grid-container">
+  
+        <div *ngFor = "let employee of searchedEmployees | async; let i = index;" class="grid-item">
+          
+
+          <div *ngIf="i < 3">
+
+              <div class="details">
+                  <ion-list click = "chooseEmployee(result);">
+                    <ion-item>
+                      <!-- <ion-avatar item-start>
+                        <img src="{{result.img}}">
+                      </ion-avatar> -->
+                      <h2>{{employee.firstname + ' ' + employee.lastname}}</h2>
+                      <p>Office No {{ result?.office}}</p>
+                    </ion-item>
+                  </ion-list>
+                </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      </div>
+
+      <ion-row>
+        <ion-col>
+            <button class = "next" round ion-button (click) = "goToSlide(1)">back</button>
+        </ion-col>
+        <ion-col>
+            <button class = "next" round ion-button (click) = "createAppointment()">done</button>
+        </ion-col>
+      </ion-row>
+    </ion-slide>
+  </ion-slides>
+
+  {{searchedEmployees?.firstname}}
+</ion-content>

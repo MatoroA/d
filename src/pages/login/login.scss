@@ -1,0 +1,92 @@
+#login-wrapper{
+
+ 
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  //background: linear-gradient(60deg, #acb6e5be, #86fde7b6) ;
+  padding: 0 20px;
+
+  #logo{
+    display: block;
+    height: 250px;
+    background: url(../../assets/imgs/logo.svg) no-repeat center bottom;
+    background-size: contain;
+    width: 680px;
+    margin-bottom: 5px;
+  }
+  #details{
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    padding-left: 5px;
+    margin-bottom: 20px;
+    color: #fefeff;
+  }
+
+  .tb{
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 15px;
+    text-indent: 30px;
+    width: 320px;
+    margin: 5px 0;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+
+  }
+
+  #un{
+    background:  #fefeff url(../../assets/imgs/user.svg) no-repeat;
+    background-size: 23px;
+    background-position: 10px 5px;
+  }
+
+  #pw{
+    background:  #fefeff url(../../assets/imgs/lock.svg) no-repeat;
+    background-size: 23px;
+    background-position: 10px 5px;
+  }
+
+  button{
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 15px;
+    width: 158px;
+    margin: 5px 0;
+    color: #fefeff;
+    background: linear-gradient(to right, #4568dc, #506093);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  }
+}
+
+.clear-item{
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+#background{
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -55;
+  background: linear-gradient(55deg, #1c2237, #506093) 
+}
+
+#background::after{
+  content: "";
+  
+  position: absolute;
+  background: url(../../assets/imgs/v-01-01.svg) no-repeat center center;
+  background-size: cover;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  opacity: .5;
+  right: 0;
+}

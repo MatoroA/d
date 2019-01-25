@@ -1,0 +1,99 @@
+page-checkin {
+
+  .sl, ion-slide{
+    height: auto !important;
+    overflow-y: scroll !important;
+    min-height: 85vh;
+  }
+
+  .global-heading{
+    padding: 10px 0 30px;
+    font-size: 24px;
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .next{
+    transform: translateY(50px);
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 10px;
+    transition: all .22s ease-in;
+
+    .details{
+      button{
+        width: 100%;
+        padding: 14px;
+        
+      }
+      
+      span{
+        text-align: left;
+        width: 100%;
+        display: block;
+        padding: 10px 15px;
+      }
+    }
+  }
+
+  .grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 2px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    margin: 2px;
+    font-size: 30px;
+    text-align: center;
+    animation: fadeIn .22s ease-in;
+  }
+
+  #pager{
+      
+      width: 140px;
+      height: 30px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+
+    .page{
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 30px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+      
+      .ring{
+        height: 30px;
+        width: 30px;
+        margin: -30px 0;
+        border: 2px solid #4a5473;
+        border-radius: 50%;
+        animation: fade .5s ease-in;
+        transform: scale(1.4);
+      }
+    }
+  }
+}
+
+@keyframes fade{
+
+  30%{
+    border: 4px solid #94a8e6;
+  }
+}
+
+@keyframes fadeIn{
+  0%{
+    opacity: 0;
+    transform: scale(.95) rotateX(30deg);
+  }
+}

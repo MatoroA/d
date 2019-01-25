@@ -1,0 +1,19 @@
+<ion-content padding>
+  
+  <div id="login-wrapper">
+    <div id="logo">
+    </div>
+    <div id="details">
+      sign in
+    </div>
+    <input type="email" class = "tb" id = "un"placeholder="e.g john@mail.com" [(ngModel)]="email" >
+    <input type="password" class = "tb" id = "pw" placeholder="*********" [(ngModel)]="password" >
+    <div id="bt-row">
+        <button (click) = "login();">login</button>
+        <button class = "clear-item">forgot my password</button>
+    </div>
+  </div>
+  <div id="background">
+
+  </div>
+</ion-content>

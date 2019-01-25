@@ -1,0 +1,46 @@
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100vw;
+}
+
+#landing-bg{
+  background: url(../../assets/imgs/landing.gif) no-repeat center center;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -5;
+}
+#landing-bg::after{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(55deg, #1c2237, #506093);
+  opacity: .7;
+}
+
+
+ion-col button{
+  width: 40vw;
+}
+
+#h2{
+  font-size: 10rem;
+  color: #fefeff;
+  max-width: 300px;
+}
+
+#sign-in{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
